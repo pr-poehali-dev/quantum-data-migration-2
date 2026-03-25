@@ -24,7 +24,7 @@ function CallDialog({ open, onClose }: { open: boolean; onClose: () => void }) {
             {PHONE_DISPLAY}
           </Button>
         </a>
-        <p className="text-neutral-500 text-xs text-center">Пн–Сб, 9:00–20:00</p>
+        <p className="text-neutral-500 text-xs text-center">Ежедневно, 10:00–19:00</p>
       </DialogContent>
     </Dialog>
   )
@@ -80,7 +80,7 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
           initial={{ opacity: 0 }} animate={isActive ? { opacity: 1 } : {}} transition={{ duration: 0.5, delay: 0.7 }}
         >
           {[
-            { label: 'Гарантия', value: '3 года' },
+            { label: 'Гарантия', value: '1 год' },
             { label: 'Диагностика', value: 'Бесплатно' },
             { label: 'Цена в договоре', value: 'Фиксированная' },
           ].map((item) => (
@@ -292,13 +292,20 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
         >
           {[
             { icon: 'MapPin', label: 'г. Владивосток' },
-            { icon: 'MessageCircle', label: 'WhatsApp / Telegram' },
-            { icon: 'Clock', label: 'Пн–Сб, 9:00–20:00' },
+            { icon: 'Send', label: 'Telegram', href: 'https://t.me/katanakuzovnoi' },
+            { icon: 'Clock', label: 'Ежедневно, 10:00–19:00' },
           ].map((item) => (
-            <div key={item.label} className="flex items-center gap-2 text-neutral-400 text-sm">
-              <Icon name={item.icon} size={16} className="text-orange-400" fallback="MapPin" />
-              {item.label}
-            </div>
+            item.href ? (
+              <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-neutral-400 text-sm hover:text-orange-400 transition-colors">
+                <Icon name={item.icon} size={16} className="text-orange-400" fallback="MapPin" />
+                {item.label}
+              </a>
+            ) : (
+              <div key={item.label} className="flex items-center gap-2 text-neutral-400 text-sm">
+                <Icon name={item.icon} size={16} className="text-orange-400" fallback="MapPin" />
+                {item.label}
+              </div>
+            )
           ))}
         </motion.div>
       </section>
