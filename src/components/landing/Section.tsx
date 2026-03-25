@@ -1,7 +1,34 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import Icon from "@/components/ui/icon"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { useState } from "react"
 import type { SectionProps } from "@/types"
+
+const PHONE = "+79143304950"
+const PHONE_DISPLAY = "+7 914 330 4950"
+
+function CallDialog({ open, onClose }: { open: boolean; onClose: () => void }) {
+  return (
+    <Dialog open={open} onOpenChange={onClose}>
+      <DialogContent className="bg-neutral-900 border border-neutral-800 text-white max-w-sm mx-auto">
+        <DialogHeader>
+          <DialogTitle className="text-xl font-bold text-white">Бесплатная диагностика</DialogTitle>
+        </DialogHeader>
+        <p className="text-neutral-400 text-sm leading-relaxed">
+          Позвоните нам — запишем на удобное время. Диагностика кузова бесплатно.
+        </p>
+        <a href={`tel:${PHONE}`} className="block w-full">
+          <Button size="lg" className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold text-base gap-2 py-6">
+            <Icon name="Phone" size={20} />
+            {PHONE_DISPLAY}
+          </Button>
+        </a>
+        <p className="text-neutral-500 text-xs text-center">Пн–Сб, 9:00–20:00</p>
+      </DialogContent>
+    </Dialog>
+  )
+}
 
 function StarRating({ rating }: { rating: number }) {
   return (
@@ -14,10 +41,12 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 export default function Section({ id, title, subtitle, content, isActive, showButton, buttonText, variant, services, works, reviews }: SectionProps) {
+  const [callOpen, setCallOpen] = useState(false)
 
   if (variant === 'hero') {
     return (
       <section id={id} className="relative h-screen w-full snap-start flex flex-col justify-center px-8 md:px-16 lg:px-24">
+        <CallDialog open={callOpen} onClose={() => setCallOpen(false)} />
         {subtitle && (
           <motion.div className="mb-8" initial={{ opacity: 0, y: 20 }} animate={isActive ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }}>
             {subtitle}
@@ -39,7 +68,7 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
           className="mt-10 flex flex-col sm:flex-row gap-4"
           initial={{ opacity: 0, y: 20 }} animate={isActive ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-6 text-base">
+          <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-6 text-base" onClick={() => setCallOpen(true)}>
             {buttonText}
           </Button>
           <Button variant="outline" size="lg" className="border-neutral-600 text-neutral-300 hover:bg-neutral-800 hover:text-white px-8 py-6 text-base bg-transparent">
@@ -232,6 +261,7 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
   if (variant === 'contact') {
     return (
       <section id={id} className="relative h-screen w-full snap-start flex flex-col justify-center px-8 md:px-16 lg:px-24">
+        <CallDialog open={callOpen} onClose={() => setCallOpen(false)} />
         <motion.h2
           className="text-4xl md:text-6xl lg:text-[5rem] font-bold leading-[1.1] tracking-tight max-w-3xl text-white"
           initial={{ opacity: 0, y: 50 }} animate={isActive ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}
@@ -248,10 +278,10 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
           className="mt-10 flex flex-col sm:flex-row gap-4"
           initial={{ opacity: 0, y: 20 }} animate={isActive ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-6 text-base">
+          <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-6 text-base" onClick={() => setCallOpen(true)}>
             {buttonText}
           </Button>
-          <Button variant="outline" size="lg" className="border-neutral-600 text-neutral-300 hover:bg-neutral-800 hover:text-white px-8 py-6 text-base bg-transparent gap-2">
+          <Button variant="outline" size="lg" className="border-neutral-600 text-neutral-300 hover:bg-neutral-800 hover:text-white px-8 py-6 text-base bg-transparent gap-2" onClick={() => setCallOpen(true)}>
             <Icon name="Phone" size={18} />
             Позвонить
           </Button>
