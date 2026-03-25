@@ -4,8 +4,16 @@ export const sections = [
   {
     id: 'hero',
     variant: 'hero',
-    subtitle: <Badge variant="outline" className="text-orange-400 border-orange-400">Владивосток · Кузовной сервис</Badge>,
-    title: "Ржавчина не пройдёт.",
+    subtitle: (
+      <div className="flex flex-col items-start gap-4">
+        <img
+          src="https://cdn.poehali.dev/projects/94886d6c-e697-4f9b-8495-fe7ffb6b1992/bucket/a5353c8e-f4fd-4190-976c-2f7e25b19588.png"
+          alt="Katana"
+          className="h-24 md:h-32 w-auto drop-shadow-lg brightness-0 invert"
+        />
+      </div>
+    ),
+    title: "Центр кузовного ремонта во Владивостоке",
     content: "Гарантия 1 год от сквозной ржавчины. Фиксированная цена в договоре. Бесплатная диагностика кузова.",
     showButton: true,
     buttonText: 'Записаться на диагностику'
