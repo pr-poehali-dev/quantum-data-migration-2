@@ -157,8 +157,24 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
               animate={isActive ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.15 * i }}
             >
-              <div className="relative h-52 overflow-hidden">
-                <img src={work.imageUrl} alt={work.title} className="w-full h-full object-cover object-top" />
+              <div className="grid grid-cols-2 h-52">
+                <div className="relative overflow-hidden">
+                  <img
+                    src={work.imageUrl}
+                    alt="До"
+                    className="absolute inset-0 w-full h-[200%] object-cover object-top"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white text-xs font-semibold text-center py-1 tracking-wider">ДО</div>
+                </div>
+                <div className="relative overflow-hidden">
+                  <img
+                    src={work.imageUrl}
+                    alt="После"
+                    className="absolute inset-0 w-full h-[200%] object-cover"
+                    style={{ objectPosition: '0 100%' }}
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-orange-500/80 text-white text-xs font-semibold text-center py-1 tracking-wider">ПОСЛЕ</div>
+                </div>
               </div>
               <div className="p-4">
                 <h3 className="text-white font-semibold text-sm mb-1">{work.title}</h3>
