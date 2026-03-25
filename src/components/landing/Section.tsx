@@ -143,12 +143,12 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
     return (
       <section id={id} className="relative h-screen w-full snap-start flex flex-col justify-center px-8 md:px-16 lg:px-24">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-white mb-10"
+          className="text-4xl md:text-5xl font-bold text-white mb-8"
           initial={{ opacity: 0, y: 30 }} animate={isActive ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }}
         >
           {title}
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl">
           {works.map((work, i) => (
             <motion.div
               key={work.title}
@@ -157,15 +157,8 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
               animate={isActive ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.15 * i }}
             >
-              <div className="grid grid-cols-2 h-40">
-                <div className="relative overflow-hidden">
-                  <img src={work.imageUrl} alt="До" className="w-full h-full object-cover" />
-                  <div className="absolute top-2 left-2 bg-black/70 text-white text-xs px-2 py-0.5 rounded">До</div>
-                </div>
-                <div className="relative overflow-hidden">
-                  <img src={work.imageAfterUrl ?? work.imageUrl} alt="После" className="w-full h-full object-cover" />
-                  <div className="absolute top-2 left-2 bg-orange-500/90 text-white text-xs px-2 py-0.5 rounded">После</div>
-                </div>
+              <div className="relative h-52 overflow-hidden">
+                <img src={work.imageUrl} alt={work.title} className="w-full h-full object-cover object-top" />
               </div>
               <div className="p-4">
                 <h3 className="text-white font-semibold text-sm mb-1">{work.title}</h3>
