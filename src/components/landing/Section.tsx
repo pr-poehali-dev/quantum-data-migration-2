@@ -46,50 +46,60 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
   if (variant === 'hero') {
     return (
       <section id={id} className="relative h-screen w-full snap-start flex flex-col justify-center px-8 md:px-16 lg:px-24">
-        <CallDialog open={callOpen} onClose={() => setCallOpen(false)} />
-        {subtitle && (
-          <motion.div className="mb-8" initial={{ opacity: 0, y: 20 }} animate={isActive ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }}>
-            {subtitle}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://cdn.poehali.dev/projects/94886d6c-e697-4f9b-8495-fe7ffb6b1992/files/1441b36a-27a7-4bac-bc63-3f30ddb4cab3.jpg"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/70" />
+        </div>
+        <div className="relative z-10 flex flex-col">
+          <CallDialog open={callOpen} onClose={() => setCallOpen(false)} />
+          {subtitle && (
+            <motion.div className="mb-8" initial={{ opacity: 0, y: 20 }} animate={isActive ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }}>
+              {subtitle}
+            </motion.div>
+          )}
+          <motion.h1
+            className="text-5xl md:text-7xl lg:text-[6rem] font-bold leading-[1.05] tracking-tight max-w-4xl text-white"
+            initial={{ opacity: 0, y: 50 }} animate={isActive ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}
+          >
+            {title}
+          </motion.h1>
+          <motion.p
+            className="text-lg md:text-2xl max-w-2xl mt-6 text-neutral-300 leading-relaxed"
+            initial={{ opacity: 0, y: 30 }} animate={isActive ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            {content}
+          </motion.p>
+          <motion.div
+            className="mt-10 flex flex-col sm:flex-row gap-4"
+            initial={{ opacity: 0, y: 20 }} animate={isActive ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-6 text-base" onClick={() => setCallOpen(true)}>
+              {buttonText}
+            </Button>
+            <Button variant="outline" size="lg" className="border-neutral-600 text-neutral-300 hover:bg-neutral-800 hover:text-white px-8 py-6 text-base bg-transparent">
+              Примеры работ
+            </Button>
           </motion.div>
-        )}
-        <motion.h1
-          className="text-5xl md:text-7xl lg:text-[6rem] font-bold leading-[1.05] tracking-tight max-w-4xl text-white"
-          initial={{ opacity: 0, y: 50 }} animate={isActive ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}
-        >
-          {title}
-        </motion.h1>
-        <motion.p
-          className="text-lg md:text-2xl max-w-2xl mt-6 text-neutral-300 leading-relaxed"
-          initial={{ opacity: 0, y: 30 }} animate={isActive ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          {content}
-        </motion.p>
-        <motion.div
-          className="mt-10 flex flex-col sm:flex-row gap-4"
-          initial={{ opacity: 0, y: 20 }} animate={isActive ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-6 text-base" onClick={() => setCallOpen(true)}>
-            {buttonText}
-          </Button>
-          <Button variant="outline" size="lg" className="border-neutral-600 text-neutral-300 hover:bg-neutral-800 hover:text-white px-8 py-6 text-base bg-transparent">
-            Примеры работ
-          </Button>
-        </motion.div>
-        <motion.div
-          className="mt-16 flex flex-wrap gap-6"
-          initial={{ opacity: 0 }} animate={isActive ? { opacity: 1 } : {}} transition={{ duration: 0.5, delay: 0.7 }}
-        >
-          {[
-            { label: 'Гарантия', value: '1 год' },
-            { label: 'Диагностика', value: 'Бесплатно' },
-            { label: 'Цена в договоре', value: 'Фиксированная' },
-          ].map((item) => (
-            <div key={item.label} className="text-center">
-              <div className="text-2xl font-bold text-orange-400">{item.value}</div>
-              <div className="text-sm text-neutral-500 mt-0.5">{item.label}</div>
-            </div>
-          ))}
-        </motion.div>
+          <motion.div
+            className="mt-16 flex flex-wrap gap-6"
+            initial={{ opacity: 0 }} animate={isActive ? { opacity: 1 } : {}} transition={{ duration: 0.5, delay: 0.7 }}
+          >
+            {[
+              { label: 'Гарантия', value: '1 год' },
+              { label: 'Диагностика', value: 'Бесплатно' },
+              { label: 'Цена в договоре', value: 'Фиксированная' },
+            ].map((item) => (
+              <div key={item.label} className="text-center">
+                <div className="text-2xl font-bold text-orange-400">{item.value}</div>
+                <div className="text-sm text-neutral-500 mt-0.5">{item.label}</div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
       </section>
     )
   }
@@ -275,23 +285,22 @@ export default function Section({ id, title, subtitle, content, isActive, showBu
           {content}
         </motion.p>
         <motion.div
-          className="mt-10 flex flex-col sm:flex-row gap-4"
+          className="mt-10"
           initial={{ opacity: 0, y: 20 }} animate={isActive ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-6 text-base" onClick={() => setCallOpen(true)}>
-            {buttonText}
-          </Button>
-          <Button variant="outline" size="lg" className="border-neutral-600 text-neutral-300 hover:bg-neutral-800 hover:text-white px-8 py-6 text-base bg-transparent gap-2" onClick={() => setCallOpen(true)}>
-            <Icon name="Phone" size={18} />
-            Позвонить
-          </Button>
+          <a href={`tel:${PHONE}`}>
+            <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-10 py-6 text-base gap-2">
+              <Icon name="Phone" size={20} />
+              Позвонить
+            </Button>
+          </a>
         </motion.div>
         <motion.div
           className="mt-12 flex flex-wrap gap-6"
           initial={{ opacity: 0 }} animate={isActive ? { opacity: 1 } : {}} transition={{ duration: 0.5, delay: 0.6 }}
         >
           {[
-            { icon: 'MapPin', label: 'г. Владивосток' },
+            { icon: 'MapPin', label: 'г. Владивосток', href: 'https://go.2gis.com/HQ21b' },
             { icon: 'Send', label: 'Telegram', href: 'https://t.me/katanakuzovnoi' },
             { icon: 'Clock', label: 'Ежедневно, 10:00–19:00' },
           ].map((item) => (

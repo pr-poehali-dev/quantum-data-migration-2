@@ -43,6 +43,38 @@ export const sections = [
         imageUrl: 'https://cdn.poehali.dev/projects/94886d6c-e697-4f9b-8495-fe7ffb6b1992/files/cd4522d8-c210-4e40-9067-463b75a38d92.jpg',
         imageAfterUrl: 'https://cdn.poehali.dev/projects/94886d6c-e697-4f9b-8495-fe7ffb6b1992/files/046193cd-010d-41e1-9582-1fc2a86a3b9f.jpg',
       },
+      {
+        title: 'Toyota Land Cruiser — замена арок',
+        description: 'Сквозная коррозия задних арок. Вырезали и сварили новые усиленные арки, покрасили в цвет кузова.',
+        duration: '4 дня',
+        guarantee: '1 год',
+        imageUrl: 'https://cdn.poehali.dev/projects/94886d6c-e697-4f9b-8495-fe7ffb6b1992/files/cd4522d8-c210-4e40-9067-463b75a38d92.jpg',
+        imageAfterUrl: 'https://cdn.poehali.dev/projects/94886d6c-e697-4f9b-8495-fe7ffb6b1992/files/046193cd-010d-41e1-9582-1fc2a86a3b9f.jpg',
+      },
+      {
+        title: 'Mazda CX-5 — антикор днища',
+        description: 'Полная антикоррозийная обработка днища и скрытых полостей. Жидкий резиноподобный состав + скрытые полости.',
+        duration: '1 день',
+        guarantee: '1 год',
+        imageUrl: 'https://cdn.poehali.dev/projects/94886d6c-e697-4f9b-8495-fe7ffb6b1992/files/a4818d1f-deea-4ea7-a8f7-e7ff16c249ff.jpg',
+        imageAfterUrl: 'https://cdn.poehali.dev/projects/94886d6c-e697-4f9b-8495-fe7ffb6b1992/files/046193cd-010d-41e1-9582-1fc2a86a3b9f.jpg',
+      },
+      {
+        title: 'Subaru Forester — полная покраска',
+        description: 'Подготовка к продаже: шлифовка, шпатлёвка, грунт, покраска в цвет. Полировка в подарок.',
+        duration: '5 дней',
+        guarantee: '1 год',
+        imageUrl: 'https://cdn.poehali.dev/projects/94886d6c-e697-4f9b-8495-fe7ffb6b1992/files/cd4522d8-c210-4e40-9067-463b75a38d92.jpg',
+        imageAfterUrl: 'https://cdn.poehali.dev/projects/94886d6c-e697-4f9b-8495-fe7ffb6b1992/files/046193cd-010d-41e1-9582-1fc2a86a3b9f.jpg',
+      },
+      {
+        title: 'Honda Fit — ржавчина капота',
+        description: 'Локальное вздутие краски и ржавчина капота. Зачистили до металла, обработали грунтом, покрасили в цвет.',
+        duration: '2 дня',
+        guarantee: '1 год',
+        imageUrl: 'https://cdn.poehali.dev/projects/94886d6c-e697-4f9b-8495-fe7ffb6b1992/files/a4818d1f-deea-4ea7-a8f7-e7ff16c249ff.jpg',
+        imageAfterUrl: 'https://cdn.poehali.dev/projects/94886d6c-e697-4f9b-8495-fe7ffb6b1992/files/046193cd-010d-41e1-9582-1fc2a86a3b9f.jpg',
+      },
     ]
   },
   {
